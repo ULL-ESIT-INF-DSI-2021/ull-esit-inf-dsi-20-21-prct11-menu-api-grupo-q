@@ -11,8 +11,25 @@ app.get('/ingredientes', (_, res) => {
   res.send('<h1> Bienvenido/a a los ingredientes</h1>  <br><h3>Los ingredientes </h3>');
 });
 
-app.get('/info', (_, res) => {
+app.get('/information', (_, res) => {
     res.send({hola: "holabb", adios: "adiosbb"});
+});
+
+app.get('/notes', (_, res) => {
+  res.send({
+    notes: [
+      {
+        title: 'Blue note',
+        body: 'This is a blue note',
+        color: 'blue',
+      },
+      {
+        title: 'Yellow note',
+        body: 'This is a yellow note',
+        color: 'yellow',
+      },
+    ],
+  });
 });
 
 app.listen(3000, () => {
