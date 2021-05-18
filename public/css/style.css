@@ -1,0 +1,35 @@
+body {
+background: rgb(253, 224, 222);
+}
+
+.title {
+  color: transparent;  
+  text-shadow: 0 0 0 rgb(85, 48, 44);
+  font-family: monospace;
+  padding-left: 30px;
+}
+
+.nav-enlace {
+  display: inline-block;
+  color: seashell;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-family: monospace;
+  font-size: 15px;
+  transition: background 0.5s ease-in-out;
+  border-radius: 20px;
+}
+
+.nav-enlace:hover {
+  color: rgb(85, 48, 44);
+  background: rgb(253, 162, 152);
+  border-radius: 20px;
+}
+
+nav {
+  background: salmon;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
