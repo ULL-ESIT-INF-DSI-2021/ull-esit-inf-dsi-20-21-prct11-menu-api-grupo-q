@@ -9,7 +9,7 @@ En este informe se resumen las actividades realizadas en la **práctica 11** par
 ### Objetivos
 
 Al finalizar la práctica, habremos completado los siguientes objetivos:
-#PONER LOS OBJETIVOS
+# PONER LOS OBJETIVOS
 * Crear una estructura que nos permita el diseño y manipulación de menús
 * Saber analizar que patron de diseño se debe utilizar según el caso
 * Dominar el correcto uso conjunto de todas las distintas estructuras y tipos de datos
