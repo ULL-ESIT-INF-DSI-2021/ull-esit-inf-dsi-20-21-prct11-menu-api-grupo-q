@@ -9,11 +9,11 @@ En este informe se resumen las actividades realizadas en la **práctica 11** par
 ### Objetivos
 
 Al finalizar la práctica, habremos completado los siguientes objetivos:
-# PONER LOS OBJETIVOS
-* Crear una estructura que nos permita el diseño y manipulación de menús
-* Saber analizar que patron de diseño se debe utilizar según el caso
+
+* Manejar con destresa un servidor we a través de node/express 
+* Llevar a cabo en la API, las operaciones de creación, lectura, modificación y borrado de ingredientes, platos y menus.
 * Dominar el correcto uso conjunto de todas las distintas estructuras y tipos de datos
-* Aprender a usar el módulo Inquirer.js para la gestión de una línea de comandos interactiva
+* Aprender a usar el módulo MongoDb para la gestión de una base de datos 
 
 ### 1. Creación y configuración del driectorio del proyecto.
 
