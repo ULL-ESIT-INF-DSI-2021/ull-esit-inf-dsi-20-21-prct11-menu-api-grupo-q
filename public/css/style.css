@@ -1,12 +1,15 @@
 body {
 background: rgb(253, 224, 222);
+width: 700px;
+margin: auto;
 }
 
 .title {
   color: transparent;  
   text-shadow: 0 0 0 rgb(85, 48, 44);
   font-family: monospace;
-  padding-left: 30px;
+  padding-left: 4%;
+  font-size: 27px;
 }
 
 .nav-enlace {
@@ -32,4 +35,167 @@ nav {
   padding: 10px;
   display: flex;
   justify-content: space-around;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.mySlides {
+	display:none;
+  padding-top: 10px;
+  border-radius: 30px;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+.w3-left, .w3-right {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.search {
+	display: inline-block;
+	position: relative;
+	height: 23.5px;
+	width: 23.5px;
+	box-sizing: border-box;
+	border: 3px solid white;
+	border-radius: 25px;
+	transition: all 200ms ease;
+	cursor: text;
+  margin-left: 3%;
+}
+
+.search-editor {
+  background: salmon;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+	.search:after {
+		content: "";
+		position: absolute;
+		width: 3px;
+		height: 11px;
+		right: -5px;
+		top: 15px;
+		background: white;
+		border-radius: 3px;
+		transform: rotate(-45deg);
+		transition: all 200ms ease;
+	}
+
+  .search:hover {
+		width: 94%;
+		margin-right: 0px;
+	}
+
+  .search:hover:after {
+    height: 0px;
+  }
+	
+input {
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  font-family: Helvetica;
+  font-size: 15px;
+  color: inherit;
+  background: transparent;
+  outline-width: 0px;
+}
+
+.formulario-ingrediente {
+  background: salmon;
+  width: 500px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.253);
+  margin: 400 0;
+  font-family: monospace;
+  font-size: 14px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.datos-iniciales, .datos-nutr, .datos-geo {
+  background: rgb(247, 164, 155);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.datos-nutr, .datos-geo {
+  margin-top: 10px;
+}
+
+.form-align {
+  justify-content: center;
+  align-items: center;
+}
+
+.plano {
+  height: 900px;
+  background: rgb(218, 101, 88);
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.253);
+}
+
+.title-plantilla {
+  color: transparent;  
+  text-shadow: 0 0 0 rgb(85, 48, 44);
+  font-family: monospace;
+  padding-left: 4%;
+  font-size: 27px;
+  text-align: center;
+}
+
+#texto-dentro {
+  margin-left: 10px;
+}
+
+.ralla {
+  text-align: center;
+  color: rgb(253, 224, 222);
+}
+
+.boton-home{
+  width: 100px;
+  height: 100px;
+  line-height: 120px;
+  border-radius: 50%;
+  font-size: 50px;
+  color: salmon;
+  align-items: center;
+  background: rgb(218, 101, 88);
+  display: flex;
+  margin-top: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.2s background ease-in;
+}
+
+#boton {
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 0 0 rgb(253, 224, 222);
+  color: transparent; 
+  transition: 0.2s ease-in;
+}
+
+#boton:hover {
+  font-size: 60px;
+  transition: 0.2s ease-in-out;
+}
+
+.boton-home:hover {
+  background: rgb(219, 118, 107);
+  transition: 0.2s background ease-in-out;
 }
