@@ -139,7 +139,7 @@ input {
   align-items: center;
 }
 
-.plano {
+.plano, main {
   height: 900px;
   background: rgb(218, 101, 88);
   padding: 10px;
@@ -148,11 +148,10 @@ input {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.253);
 }
 
-.title-plantilla {
+.title-plantilla, .title-index {
   color: transparent;  
   text-shadow: 0 0 0 rgb(85, 48, 44);
   font-family: monospace;
-  padding-left: 4%;
   font-size: 27px;
   text-align: center;
 }
@@ -198,4 +197,107 @@ input {
 .boton-home:hover {
   background: rgb(219, 118, 107);
   transition: 0.2s background ease-in-out;
+}
+
+.ingredientes-access, .platos-access, .menu-access {
+  background: rgb(247, 164, 155);
+  padding: 5px;
+  border-radius: 20px;
+  width: 250px;
+  height: 260px;
+  margin: auto;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.253);
+  transition: 0.2s ease-in;
+}
+
+.ingredientes-access:hover, .platos-access:hover, .menu-access:hover {
+  background: rgb(235, 155, 146);
+  transition: 0.2s background ease-in-out;
+  width: 260px;
+  height: 270px;
+  transition: 0.2s ease-out;
+}
+
+.fondo {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  margin-top: 6.5%;
+  background: salmon;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.253);
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.info-access {
+  background: none;
+  width: 255px;
+  height: 270px;
+  margin: auto;
+  position: relative;
+}
+
+.thecard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transition: all 1s ease;
+}
+
+.thecard:hover{
+  transform: rotateY(180deg);
+}
+
+.thefront{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: rgb(247, 164, 155);
+  color: #000;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.253);
+}
+
+.theback{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: rgb(253, 224, 222);
+  color: #333;
+  text-align: center;
+  transform: rotateY(180deg);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.253);
+}
+
+#boton-ingr {
+  text-align: center;
+  margin-top: 17%;
+  font-family: monospace;
+  font-size: 80px;
+  text-shadow: 0 0 0 rgb(253, 224, 222);
+  color: transparent;
+}
+
+#boton-ltr {
+  font-family: monospace;
+  font-size: 25px;
+  text-align: center;
+  margin-top: -50px;
+  color: rgb(253, 224, 222);
+  font-weight: bold;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.219);
 }
