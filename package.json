@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc-watch --onSuccess \"node dist/index.js\"",
-    "server": "tsc-watch --onSuccess \"node dist/app.js\""
+    "server": "tsc-watch --onSuccess \"node dist/app.js\"",
+    "prueba": "tsc-watch --onSuccess \"node dist/adios.js\"",
+    "user": "tsc-watch --onSuccess \"node dist/adduser.js\"",
+    "ingredientes": "tsc-watch --onSuccess \"node dist/models/Ingredients/IngredientSchema.js\""
   },
   "repository": {
     "type": "git",
