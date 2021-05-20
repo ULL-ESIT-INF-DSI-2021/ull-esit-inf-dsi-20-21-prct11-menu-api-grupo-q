@@ -1,5 +1,7 @@
-import {Platos} from "./Platos";
-import {Document, Schema, model} from 'mongoose';
+import { Platos } from "./platos";
+import { Schema, model } from 'mongoose';
+import { IngredienteSchema } from '../Ingredients/IngredientSchema';
+
 
 
 const PlatoSchema = new Schema({
@@ -14,25 +16,19 @@ const PlatoSchema = new Schema({
       }
     },
   },
-  ingredientes: {   //REVISAR ESQUEMA PARA INGREDIENTES
+  ingredientes: {
     type: Array,
-    ingrediente: {
-      type: JSON,
-      required: true,
-      unique: true,
-      trim: true,
-      validate: (value: string) => {
-        if (!value.match(/^[A-Z]/)) {
-          throw new Error('El nombre del Plato debe empezar con mayuscula');
-        }
-      },
-    },
+    ingrediente: IngredienteSchema,
     cantidad: {
       type: Number,
       required: true,
-      unique: true,
       trim: true,
-    },
+      validate: (value: number) => {
+        if ((value < 0) && (Number.isInteger(value))) {
+          throw new Error('La cantidad introducida no es válida');
+        }
+      },
+    }
   },
   categoria: {
     type: String,
@@ -65,4 +61,4 @@ const PlatoSchema = new Schema({
   },
 });
 
-export const platoSchema = model<Platos>('Plato', PlatoSchema);
+const platoSchema = model<Platos>('Plato', PlatoSchema);

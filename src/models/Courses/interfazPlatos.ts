@@ -1,4 +1,4 @@
-import { Ingrediente } from "../ingredients/ingredientes"
+import { Ingrediente } from "../Ingredients/ingredientes"
 /**
  * Interfaz Plato. Permite definir los métodos que tendrá la clase Plato.
  */

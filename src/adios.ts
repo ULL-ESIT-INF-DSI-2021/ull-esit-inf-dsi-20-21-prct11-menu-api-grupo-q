@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 import validator from 'validator';
 import {Platos} from "../src/models/Courses/platos";
-import { IngredienteSchema } from '../src/models/Ingredients/IngredientSchema';
+import { ingredientePrueba, IngredienteSchema } from './models/Ingredients/IngredientSchema';
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/users', {
@@ -27,7 +27,20 @@ const PlatoSchema = new mongoose.Schema({
       }
     },
   },
-  ingredientes: [IngredienteSchema],
+  ingredientes: {
+    type: Array,
+    ingrediente: IngredienteSchema,
+    cantidad: {
+      type: Number,
+      required: true,
+      trim: true,
+      validate: (value: number) => {
+        if ((value < 0) && (Number.isInteger(value))) {
+          throw new Error('La cantidad introducida no es válida');
+        }
+      },
+    }
+  },
   categoria: {
     type: String,
     required: true,
@@ -63,6 +76,91 @@ const platoSchema = mongoose.model<Platos>('Plato', PlatoSchema);
 
 const note = new platoSchema({
   name: 'Pan con ajo',
+  ingredientes: 
+    [{
+      ingrediente: {
+        grupo: {
+          numGrupo: 1,
+          grupo: [
+            "Carnes",
+            "Pescados",
+            "Huevos",
+            "Tofu",
+            "Frutos Secos",
+            "Legumbres"
+          ]
+        },
+        nombre: "Jamon cocido",
+        composicionNutricional: {
+          lipidos: 10.8,
+          hCarbono: 1,
+          proteinas: 18.4,
+          kCal: 175
+        },
+        localizacion: {
+          ciudad: "La Rioja",
+          pais: "España"
+        },
+        precio: 7.25
+      },
+      cantidad: 10
+    },
+    {
+      ingrediente: {
+        grupo: {
+          numGrupo: 1,
+          grupo: [
+            "Carnes",
+            "Pescados",
+            "Huevos",
+            "Tofu",
+            "Frutos Secos",
+            "Legumbres"
+          ]
+        },
+        nombre: "Jamon cocido",
+        composicionNutricional: {
+          lipidos: 10.8,
+          hCarbono: 1,
+          proteinas: 18.4,
+          kCal: 175
+        },
+        localizacion: {
+          ciudad: "La Rioja",
+          pais: "España"
+        },
+        precio: 7.25
+      },
+      cantidad: 20
+    },
+    {
+      ingrediente: {
+        grupo: {
+          numGrupo: 1,
+          grupo: [
+            "Carnes",
+            "Pescados",
+            "Huevos",
+            "Tofu",
+            "Frutos Secos",
+            "Legumbres"
+          ]
+        },
+        nombre: "Jamon cocido",
+        composicionNutricional: {
+          lipidos: 10.8,
+          hCarbono: 1,
+          proteinas: 18.4,
+          kCal: 175
+        },
+        localizacion: {
+          ciudad: "La Rioja",
+          pais: "España"
+        },
+        precio: 7.25
+      },
+      cantidad: 30
+    }],
   categoria: 'Entrante',
   composicionNutricional: {
     lipidos: 51.065999999999995,
