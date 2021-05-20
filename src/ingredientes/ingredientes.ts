@@ -1,6 +1,7 @@
-import { GrupoAlimenticio, ComposicionNutricional, Localizacion } from "./tiposDefinidos"
-import { GruposAlimentos } from "./gruposAlimentos"
-import { IngredientesI } from "./interfazIngredientes"
+
+import {GrupoAlimenticio, ComposicionNutricional, Localizacion} from "./tiposDefinidos";
+import {GruposAlimentos} from "./gruposAlimentos";
+import {IngredientesI} from "./interfazIngredientes";
 
 
 /**
@@ -10,8 +11,7 @@ import { IngredientesI } from "./interfazIngredientes"
  * tiene un ingrediente son: Nombre, grupo alimenticio al que pertenece, su composición nutricional,
  * la ciudad y el país de origen y el precio por 1kg de ese ingrediente.
  */
-export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoAlimenticio, ComposicionNutricional, Localizacion>{
-
+export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoAlimenticio, ComposicionNutricional, Localizacion> {
     private nombre: string;
     private composicionNutricional: ComposicionNutricional;
     private localizacion: Localizacion;
@@ -27,12 +27,12 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * @param precio Precio del ingrediente.
      */
     constructor(nombre: string, grupo: number, composicionNutricional: [number, number, number, number],
-    localizacion: [string, string], precio: number){
-        super(grupo)
-        this.nombre = nombre;
-        this.composicionNutricional = {lipidos: composicionNutricional[0], hCarbono: composicionNutricional[1], proteinas: composicionNutricional[2], kCal: composicionNutricional[3]};
-        this.localizacion = {ciudad: localizacion[0], pais: localizacion[1]};
-        this.precio = precio;
+        localizacion: [string, string], precio: number) {
+      super(grupo);
+      this.nombre = nombre;
+      this.composicionNutricional = {lipidos: composicionNutricional[0], hCarbono: composicionNutricional[1], proteinas: composicionNutricional[2], kCal: composicionNutricional[3]};
+      this.localizacion = {ciudad: localizacion[0], pais: localizacion[1]};
+      this.precio = precio;
     }
 
 
@@ -40,9 +40,8 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método getter para obtener el nombre del ingrediente.
      * @returns Se retorna el nombre del ingrediente en forma de string.
      */
-    getNombre(){
-
-        return this.nombre;
+    getNombre() {
+      return this.nombre;
     }
 
 
@@ -50,9 +49,8 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método getter para obtener el grupo alimenticio del ingrediente.
      * @returns Se retorna el grupo alimenticio del ingrediente en forma del tipo de dato GrupoAlimenticio.
      */
-    getGrupoAlimenticio(){
-        
-        return this.getGrupo();
+    getGrupoAlimenticio() {
+      return this.getGrupo();
     }
 
 
@@ -60,9 +58,8 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método getter para obtener la composición nutricional del ingrediente.
      * @returns Se retorna la composición nutricional del ingrediente en forma del tipo de dato composicionNutricional.
      */
-    getComposicionNutricional(){
-        
-        return this.composicionNutricional;
+    getComposicionNutricional() {
+      return this.composicionNutricional;
     }
 
 
@@ -70,9 +67,8 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método getter para obtener la localización del ingrediente.
      * @returns Se retorna la localización del ingrediente en forma del tipo de dato Localización.
      */
-    getLocalizacion(){
-        
-        return this.localizacion;
+    getLocalizacion() {
+      return this.localizacion;
     }
 
 
@@ -80,9 +76,8 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método getter para obtener el precio del ingrediente.
      * @returns Se retorna el precio del ingrediente.
      */
-    getPrecio(){
-        
-        return this.precio;
+    getPrecio() {
+      return this.precio;
     }
 
 
@@ -90,9 +85,8 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método setter para definir el nombre del ingrediente.
      * @param nombre Nombre del ingrediente.
      */
-    setNombre(nombre: string){
-
-        this.nombre = nombre;
+    setNombre(nombre: string) {
+      this.nombre = nombre;
     }
 
 
@@ -100,10 +94,9 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método setter para definir el grupo alimenticio al que pertenece el ingrediente.
      * @param grupoAlimenticio Grupo alimenticio del ingrediente.
      */
-    setGrupoAlimenticio(grupoAlimenticio: number){
-        
-        this.setGrupo(grupoAlimenticio);
-        //this.grupoAlimenticio = this.getGrupo();
+    setGrupoAlimenticio(grupoAlimenticio: number) {
+      this.setGrupo(grupoAlimenticio);
+      // this.grupoAlimenticio = this.getGrupo();
     }
 
 
@@ -111,9 +104,8 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método setter para definir la composición nutricional del ingrediente.
      * @param composicionNutricional Composición nutricional del ingrediente [Lípidos, Hidratos de Carbono, Proteínas, Kcal].
      */
-    setComposicionNutricional(composicionNutricional: [number, number, number, number]){
-        
-        this.composicionNutricional = {lipidos: composicionNutricional[0], hCarbono: composicionNutricional[1], proteinas: composicionNutricional[2], kCal: composicionNutricional[3]};
+    setComposicionNutricional(composicionNutricional: [number, number, number, number]) {
+      this.composicionNutricional = {lipidos: composicionNutricional[0], hCarbono: composicionNutricional[1], proteinas: composicionNutricional[2], kCal: composicionNutricional[3]};
     }
 
 
@@ -121,9 +113,8 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método setter para definir la localización de origen del ingrediente.
      * @param localizacion Origen del ingrediente [Ciudad, País].
      */
-    setLocalizacion(localizacion: [string, string]){
-        
-        this.localizacion = {ciudad: localizacion[0], pais: localizacion[1]};
+    setLocalizacion(localizacion: [string, string]) {
+      this.localizacion = {ciudad: localizacion[0], pais: localizacion[1]};
     }
 
 
@@ -131,8 +122,7 @@ export class Ingrediente extends GruposAlimentos implements IngredientesI<GrupoA
      * Método setter para definir el precio del ingrediente.
      * @param precio Precio del ingrediente.
      */
-    setPrecio(precio: number){
-        
-        this.precio = precio;
+    setPrecio(precio: number) {
+      this.precio = precio;
     }
 }
