@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/*
 import {MongoClient} from 'mongodb';
 import {Ingrediente} from './ingredientes/ingredientes';
 import * as fs from 'fs';
@@ -33,3 +33,4 @@ MongoClient.connect(dbURL, {
 }).catch((error) => {
   console.log(error);
 });
+*/
