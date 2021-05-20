@@ -1,15 +1,6 @@
-/*import * as mongoose from 'mongoose';
-import {ComposicionNutricional, GrupoAlimenticio, Localizacion} from '../../ingredientes/tiposDefinidos';
-
-mongoose.connect('mongodb://127.0.0.1:27017/Practica11', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-}).then(() => {
-  console.log('Connected to the database');
-}).catch(() => {
-  console.log('Something went wrong when conecting to the database');
-});
+import {Ingrediente} from "./ingredientes";
+import {Document, Schema, model} from 'mongoose';
+import {GrupoAlimenticio, ComposicionNutricional, Localizacion} from './tiposDefinidos';
 
 interface IngredienteInterface {
   nombre: string,
@@ -19,22 +10,25 @@ interface IngredienteInterface {
   precio: number,
 }
 
-const IngredienteSchema = new mongoose.Schema({
+const IngredienteSchema = new Schema({
   grupo: {
     numGrupo: {
       type: Number,
       required: true,
       enum: [1, 2, 3, 4, 5],
+      trim: true,
     },
     grupo: {
       type: Array,
       required: true,
+      trim: true,
     },
   },
   nombre: {
     type: String,
     required: true,
     unique: true,
+    trim: true,
     validate: (value: string) => {
       if (!value.match(/^[A-Z]/)) {
         throw new Error('El nombre del ingrediente debe empezar con mayuscula');
@@ -45,6 +39,7 @@ const IngredienteSchema = new mongoose.Schema({
     lipidos: {
       type: Number,
       required: true,
+      trim: true,
       validate: (value: number) => {
         if (value < 0) {
           throw new Error('La cantidad de lipidos debe ser un numero positivo');
@@ -54,6 +49,7 @@ const IngredienteSchema = new mongoose.Schema({
     hCarbono: {
       type: Number,
       required: true,
+      trim: true,
       validate: (value: number) => {
         if (value < 0) {
           throw new Error('La cantidad de hidratos de carbono debe ser un numero positivo');
@@ -63,6 +59,7 @@ const IngredienteSchema = new mongoose.Schema({
     proteinas: {
       type: Number,
       required: true,
+      trim: true,
       validate: (value: number) => {
         if (value < 0) {
           throw new Error('La cantidad de proteinas debe ser un numero positivo');
@@ -72,6 +69,7 @@ const IngredienteSchema = new mongoose.Schema({
     kCal: {
       type: Number,
       required: true,
+      trim: true,
       validate: (value: number) => {
         if (value < 0) {
           throw new Error('La cantidad de kilocalorias debe ser un numero positivo');
@@ -83,6 +81,7 @@ const IngredienteSchema = new mongoose.Schema({
     ciudad: {
       type: String,
       required: true,
+      trim: true,
       validate: (value: string) => {
         if (!value.match(/^[A-Z]/)) {
           throw new Error('La ciudad debe empezar por letra mayuscula');
@@ -92,6 +91,7 @@ const IngredienteSchema = new mongoose.Schema({
     pais: {
       type: String,
       required: true,
+      trim: true,
       validate: (value: string) => {
         if (!value.match(/^[A-Z]/)) {
           throw new Error('El pais debe empezar por letra mayuscula');
@@ -102,6 +102,7 @@ const IngredienteSchema = new mongoose.Schema({
   precio: {
     type: String,
     required: true,
+    trim: true,
     validate: (value: number) => {
       if (value < 0) {
         throw new Error('El precio del producto debe ser un numero positivo');
@@ -110,32 +111,4 @@ const IngredienteSchema = new mongoose.Schema({
   },
 });
 
-const Ingrediente = mongoose.model<IngredienteInterface>('Ingredientes', IngredienteSchema);
-
-const note = new Ingrediente({
-  grupo: {
-    numGrupo: 4,
-    grupo: [
-      "Cereales",
-    ],
-  },
-  nombre: "Pasta",
-  composicionNutricional: {
-    lipidos: 6.7,
-    hCarbono: 7.4,
-    proteinas: 43.9,
-    kCal: 273,
-  },
-  localizacion: {
-    ciudad: "Roma",
-    pais: "Italia",
-  },
-  precio: 2.5,
-});
-
-note.save().then((result) => {
-  console.log(result);
-}).catch((error) => {
-  console.log(error);
-});
-*/
+export const ingredientSchema = model<Ingrediente>('Ingrediente', IngredienteSchema);

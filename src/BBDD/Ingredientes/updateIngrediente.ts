@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/*
 import {MongoClient} from 'mongodb';
 import {ComposicionNutricional, GrupoAlimenticio, Localizacion} from '../../ingredientes/tiposDefinidos';
 
@@ -22,7 +22,7 @@ MongoClient.connect(dbURL, {
     nombre: 'Pasta',
   }, /* {
     runValidators: true,
-  },*/
+  },
   {
     $set: {
       nombre: 'Pedro',
@@ -33,3 +33,4 @@ MongoClient.connect(dbURL, {
 }).catch((error) => {
   console.log(error);
 });
+*/

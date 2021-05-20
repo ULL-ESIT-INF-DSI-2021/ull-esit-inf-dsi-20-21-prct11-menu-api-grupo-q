@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+/*import * as fs from 'fs';
 import { ComposicionNutricional, GrupoAlimenticio, Localizacion } from './ingredientes/tiposDefinidos';
 import { Ingrediente } from './ingredientes/ingredientes';
 
@@ -55,4 +55,4 @@ const loadIngrediente = (
       cb(undefined, data.toString());
     }
   });
-};
+};*/
