@@ -2,7 +2,6 @@ import * as express from 'express';
 import {join} from 'path';
 import {readIngrediente} from './ingredientesWL';
 import * as fs from 'fs';
-
 const path = require('path')
 const app = express();
 
@@ -27,7 +26,7 @@ app.get('/ingredientes.html', (req, res) => {
         let fichero = fs.readFileSync("./public/plantilla-ingredientes.html").toString();
 
         if (data != undefined && data.ingredientes != undefined) {
-          fichero = fichero.replace('NOMBREINGREDIENTE', data.ingredientes[0].getNombre());
+          fichero = fichero.replace(/NOMBREINGREDIENTE/g, data.ingredientes[0].getNombre());
           fichero = fichero.replace('GRUPOINGREDIENTE', data.ingredientes[0].getGrupoAlimenticio().grupo.toString());
           fichero = fichero.replace('CALORIASINGREDIENTE', data.ingredientes[0].getComposicionNutricional().kCal.toString());
           fichero = fichero.replace('HIDRATOSINGREDIENTE', data.ingredientes[0].getComposicionNutricional().hCarbono.toString());
