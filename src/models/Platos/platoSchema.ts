@@ -1,6 +1,7 @@
 import { Platos } from "./platos";
 import { Schema, model } from 'mongoose';
 import { IngredienteSchema } from '../Ingredientes/IngredientSchema';
+import { Ingrediente } from "../Ingredientes/ingredientes";
 
 
 
@@ -18,7 +19,7 @@ export const PlatoSchema = new Schema({
   },
   ingredientes: {
     type: Array,
-    ingrediente: IngredienteSchema,
+    ingrediente: Ingrediente,
     cantidad: {
       type: Number,
       required: true,

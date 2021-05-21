@@ -1,0 +1,289 @@
+{
+  "nombre": "Mi menú",
+  "platos": [
+    {
+      "nombre": "Pan con ajo",
+      "ingredientes": [
+        [
+          {
+            "grupo": {
+              "numGrupo": 4,
+              "grupo": [
+                "Cereales"
+              ]
+            },
+            "nombre": "Pan",
+            "composicionNutricional": {
+              "lipidos": 1,
+              "hCarbono": 58,
+              "proteinas": 7.8,
+              "kCal": 277
+            },
+            "localizacion": {
+              "ciudad": "Candelaria",
+              "pais": "España"
+            },
+            "precio": 2.5
+          },
+          100
+        ],
+        [
+          {
+            "grupo": {
+              "numGrupo": 2,
+              "grupo": [
+                "Verduras",
+                "Hortalizas"
+              ]
+            },
+            "nombre": "Ajo",
+            "composicionNutricional": {
+              "lipidos": 0.3,
+              "hCarbono": 23,
+              "proteinas": 5.3,
+              "kCal": 118
+            },
+            "localizacion": {
+              "ciudad": "Yakutsk",
+              "pais": "Siberia"
+            },
+            "precio": 3.4
+          },
+          2
+        ],
+        [
+          {
+            "grupo": {
+              "numGrupo": 3,
+              "grupo": [
+                "Leche",
+                "Derivados Lacteos"
+              ]
+            },
+            "nombre": "Mantequilla",
+            "composicionNutricional": {
+              "lipidos": 83,
+              "hCarbono": 0,
+              "proteinas": 0.6,
+              "kCal": 749
+            },
+            "localizacion": {
+              "ciudad": "Lyon",
+              "pais": "Francia"
+            },
+            "precio": 5.5
+          },
+          60
+        ],
+        [
+          {
+            "grupo": {
+              "numGrupo": 2,
+              "grupo": [
+                "Verduras",
+                "Hortalizas"
+              ]
+            },
+            "nombre": "Perejil",
+            "composicionNutricional": {
+              "lipidos": 1.3,
+              "hCarbono": 2.7,
+              "proteinas": 3,
+              "kCal": 45
+            },
+            "localizacion": {
+              "ciudad": "Cerdeña",
+              "pais": "italia"
+            },
+            "precio": 5.5
+          },
+          20
+        ]
+      ],
+      "categoria": "Entrante"
+    },
+    {
+      "nombre": "Pizza de Jamon cocido y champiñones",
+      "ingredientes": [
+        [
+          {
+            "grupo": {
+              "numGrupo": 4,
+              "grupo": [
+                "Cereales"
+              ]
+            },
+            "nombre": "Base de pizza",
+            "composicionNutricional": {
+              "lipidos": 7.4,
+              "hCarbono": 43.9,
+              "proteinas": 6.7,
+              "kCal": 273
+            },
+            "localizacion": {
+              "ciudad": "Roma",
+              "pais": "Italia"
+            },
+            "precio": 2.1
+          },
+          100
+        ],
+        [
+          {
+            "grupo": {
+              "numGrupo": 1,
+              "grupo": [
+                "Carnes",
+                "Pescados",
+                "Huevos",
+                "Tofu",
+                "Frutos Secos",
+                "Legumbres"
+              ]
+            },
+            "nombre": "Jamon cocido",
+            "composicionNutricional": {
+              "lipidos": 10.8,
+              "hCarbono": 1,
+              "proteinas": 18.4,
+              "kCal": 175
+            },
+            "localizacion": {
+              "ciudad": "La Rioja",
+              "pais": "España"
+            },
+            "precio": 7.25
+          },
+          40
+        ],
+        [
+          {
+            "grupo": {
+              "numGrupo": 3,
+              "grupo": [
+                "Leche",
+                "Derivados Lacteos"
+              ]
+            },
+            "nombre": "Queso mozzarella",
+            "composicionNutricional": {
+              "lipidos": 16.1,
+              "hCarbono": 0,
+              "proteinas": 19.5,
+              "kCal": 223
+            },
+            "localizacion": {
+              "ciudad": "Venecia",
+              "pais": "Italia"
+            },
+            "precio": 4.3
+          },
+          50
+        ],
+        [
+          {
+            "grupo": {
+              "numGrupo": 2,
+              "grupo": [
+                "Verduras",
+                "Hortalizas"
+              ]
+            },
+            "nombre": "Salsa de tomate",
+            "composicionNutricional": {
+              "lipidos": 5.3,
+              "hCarbono": 5.8,
+              "proteinas": 1.5,
+              "kCal": 81
+            },
+            "localizacion": {
+              "ciudad": "Milan",
+              "pais": "Italia"
+            },
+            "precio": 3.8
+          },
+          20
+        ],
+        [
+          {
+            "grupo": {
+              "numGrupo": 2,
+              "grupo": [
+                "Verduras",
+                "Hortalizas"
+              ]
+            },
+            "nombre": "Champiñon",
+            "composicionNutricional": {
+              "lipidos": 0.3,
+              "hCarbono": 4,
+              "proteinas": 1.8,
+              "kCal": 31
+            },
+            "localizacion": {
+              "ciudad": "La Rioja",
+              "pais": "España"
+            },
+            "precio": 7.25
+          },
+          35
+        ]
+      ],
+      "categoria": "Segundo plato"
+    },
+    {
+      "nombre": "Natillas",
+      "ingredientes": [
+        [
+          {
+            "grupo": {
+              "numGrupo": 3,
+              "grupo": [
+                "Leche",
+                "Derivados Lacteos"
+              ]
+            },
+            "nombre": "Leche",
+            "composicionNutricional": {
+              "lipidos": 3.5,
+              "hCarbono": 4.7,
+              "proteinas": 3.1,
+              "kCal": 63
+            },
+            "localizacion": {
+              "ciudad": "Asturias",
+              "pais": "España"
+            },
+            "precio": 10.42
+          },
+          120
+        ],
+        [
+          {
+            "grupo": {
+              "numGrupo": 4,
+              "grupo": [
+                "Cereales"
+              ]
+            },
+            "nombre": "Galleta",
+            "composicionNutricional": {
+              "lipidos": 14,
+              "hCarbono": 71.5,
+              "proteinas": 7,
+              "kCal": 450
+            },
+            "localizacion": {
+              "ciudad": "Doorn",
+              "pais": "Holanda"
+            },
+            "precio": 7.21
+          },
+          20
+        ]
+      ],
+      "categoria": "Postre"
+    }
+  ]
+}
+}
