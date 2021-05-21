@@ -181,3 +181,93 @@ getRouter.get('/ingredients', (req, res) => {
     });
 });
 ```
+
+### 2.3.3 Modificación
+
+A través de esta operación, se modifica un elemento de la base de datos correspondiente (durante la operación se manejarán los posibles errores con la ayuda de [promesas](https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/nodejs-promises.html)). Para ello: 
+
+* Usaremos una instancia de express encargada del direccionamiento que llamaremos **patchRouter** (ya que el método de ruta deriva en el método HTTP **PATCH** que manda la petición al servidor de actualizar los valores del elemento indicado).
+
+```ts
+export const patchRouter = express.Router();
+```
+
+* Se especificarán los cambios válidos para cada elemento (Ingrediente, menú o plato) y se llevará a cabo la validación de los valores actuales. (Esta petición será manejada haciendo uso de ThunderClient)
+
+```ts
+const allowedUpdates = ['nombre', 'grupo', 'composicionNutricional', 'localizacion', 'precio'];
+const actualUpdates = Object.keys(req.body);
+const isValidUpdate = actualUpdates.every((update) => allowedUpdates.includes(update));
+```
+* Si los cambios son váidos, los efectuaremos en el elemento indicado haciendo uso de la función `findOneAndUpdate()`
+
+```ts
+patchRouter.patch('/ingredients', (req, res) => {
+  if (!req.query.nameIngredient) {
+    res.status(400).send({
+      error: 'A name must be provided',
+    });
+  } else {
+    const allowedUpdates = ['nombre', 'grupo', 'composicionNutricional', 'localizacion', 'precio'];
+    const actualUpdates = Object.keys(req.body);
+    const isValidUpdate =
+      actualUpdates.every((update) => allowedUpdates.includes(update));
+
+    if (!isValidUpdate) {
+      res.status(400).send({
+        error: 'Update is not permitted',
+      });
+    } else {
+      ingredientSchema.findOneAndUpdate({nombre: req.query.nameIngredient.toString()}, req.body, {
+        new: true,
+        runValidators: true,
+      }).then((ingrediente) => {
+        if (!ingrediente) {
+          res.status(404).send();
+        } else {
+          res.send(ingrediente);
+        }
+      }).catch((error) => {
+        res.status(400).send(error);
+      });
+    }
+  }
+});
+```
+
+### 2.3.4 Borrado
+
+A través de esta operación, se elimina un elemento de la base de datos correspondiente (durante la operación se manejarán los posibles errores con la ayuda de [promesas](https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/nodejs-promises.html)). Para ello: 
+
+* Usaremos una instancia de express encargada del direccionamiento que llamaremos **deleteRouter** (ya que el método de ruta deriva en el método HTTP **DELETE** que manda la petición al servidor de eliminar el elemento indicado).
+
+```ts
+export const deleteRouter = express.Router();
+```
+
+* Filtraremos la base de datos en función del nombre del elemento (Ingrediente, menú o plato) que deseamos eliminar. (Esta petición será manejada haciendo uso de ThunderClient)
+
+```ts
+const filter = req.query.nameIngredient?{nombre: req.query.nameIngredient.toString()}:{};
+```
+* Buscaremos el elemento concreto por su nombre y lo eliminaremos haciendo uso de la función `findOneAndDelete()`
+
+```ts
+deleteRouter.delete('/ingredients', (req, res) => {
+  if (!req.query.nameIngredient) {
+    res.status(400).send({
+      error: 'A ingredient name must be provided',
+    });
+  } else {
+    ingredientSchema.findOneAndDelete({nombre: req.query.nameIngredient.toString()}).then((ingrediente) => {
+      if (!ingrediente) {
+        res.status(404).send();
+      } else {
+        res.send(ingrediente);
+      }
+    }).catch(() => {
+      res.status(400).send();
+    });
+  }
+});
+```
