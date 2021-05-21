@@ -1,22 +1,23 @@
 # Práctica 11 - API Node/Express de gestión de información nutricional
-## Desarrollo de Sistemas Informáticos - _Grupo q_
+## Desarrollo de Sistemas Informáticos - Grupo q
 
 ### Introducción
 
 En este informe se resumen las actividades realizadas en la **práctica 11** para poner en práctica nuestros conocimientos de API Node/Exprees. Será la segunda práctica grupal y deberemos usar todas las herramientas aprendidas con anterioridad, además utilizaremos Mongodb y se deberá desplegar la API en Heroku.
 
+
 ### Objetivos
 
 Al finalizar la práctica, habremos completado los siguientes objetivos:
 
-* Manejar con destresa un servidor we a través de node/express 
+* Manejar con destresa un servidor we a través de node/express.
 * Llevar a cabo en la API, las operaciones de creación, lectura, modificación y borrado de ingredientes, platos y menus.
-* Dominar el correcto uso conjunto de todas las distintas estructuras y tipos de datos
-* Aprender a usar el módulo MongoDb para la gestión de una base de datos 
+* Dominar el correcto uso conjunto de todas las distintas estructuras y tipos de datos.
+* Aprender a usar el módulo MongoDb para la gestión de una base de datos.
+
 
 ### 1. Creación y configuración del driectorio del proyecto.
-
-#### 1.1. Estructura inicial
+#### 1.1 Estructura inicial
 
 Para la creación de la estructura inicial, utilizaremos el mismo diseño que hemos implementado en practicas anteriores (por ejemplo, [práctica 4](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-alu0101203003/blob/gh-pages/index.md)).
 
@@ -24,19 +25,13 @@ La estructura debería quedar similar a las siguientes fotos:
 
 <img src="img/Captura1a.PNG" alt="" height="250"/> <img src="img/Captura1b.PNG" alt="" /> <img src="img/Captura1c.PNG" alt="" />
 
-#### 1.2. Organización de los ejercicios
-
-Será necesario implementar las clases del ejercicio en ficheros diferentes. Los ficheros que dependan de otros requeriran de un `import` del fichero que necesiten:
-
-<img src="img/Captura1dd.PNG" alt="" /> <img src="img/Captura1ee.PNG" alt="" />
-
-Se creará una subcarpeta para cada apartado del ejercicio en la carpeta src y, su correspondiente espectativa se crearán en la carpeta test con un fichero para realizar las pruebas de cada apartado.
 
 ### 2. Ejercicio
 
 Se pasa a explicar la resolución del ejercicio y a adjuntar su código. Se mostrará una versión simplificada del enunciados del ejercicio (para verlo al completo con aclaraciones y pistas, consultar la [guía de la práctica](https://ull-esit-inf-dsi-2021.github.io/prct11-menu-api/).
 
-#### 2.1 Alimentos y/o ingredientes
+#### 2.1 Enunciados de las diferentes partes del proyecto
+##### 2.1.1 Alimentos y/o ingredientes
 
 **Enunciado:**
 
@@ -55,9 +50,7 @@ Para cada alimento o ingrediente se deberá poder crear, leer, actualizar o borr
 Además, un alimento tendrá un nombre y localización de origen: país y ciudad.
 
 
-**Resolución:**
-
-#### 2.2.Platos
+##### 2.1.2 Platos
 
 **Enunciado:**
 
@@ -70,9 +63,8 @@ Los platos de un menú estarán compuestos por alimentos y/o ingredientes como l
 3. Grupo de alimento predominante. Este atributo deberá definir el grupo de alimento que más aparece entre los ingredientes del plato (véase la lista de en el apartado Alimentos).
 4. Precio total del plato en euros en función de la suma de los precios de los ingredientes y sus cantidades que lo componen.
 
-**Resolución:**
 
-#### 2.3.Menús
+##### 2.1.3 Menús
 
 **Enunciado:**
 
@@ -85,4 +77,12 @@ Un menú estará compuesto por platos, incluyendo un plato de cada categoría o,
 3. Composición nutricional del menú de acuerdo a lo definido en el punto 2 de la sección Alimentos.
 4. Listado de grupos de alimentos por orden de aparición.
 
-**Resolución:**
+
+#### 2.2 Schemas de las diferentes partes del proyecto
+##### 2.2.1 Schema de ingredientes
+
+ Después de añadir la información necesaria de la práctica grupal anterior para la implementación de ingredientes, a la cual podemos acceder a través de la [guía de ingredientes](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-q/tree/master/src/models/Ingredients). Después de tener esto agregado a nuestro proyecto, tendremos que crear un `schema` haciendo uso de la herramienta `mongoose`, el cual va a contener la estructura básica de cualquier ingrediente en formato **JSON**. Por lo que, la estructura que nos debería quedar sería como la que vemos en el siguiente enlace:
+ 
+ * [Schema ingredientes](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-q/blob/master/src/models/Ingredients/IngredientSchema.ts).
+
+Donde tenemos, un **nombre**, el **grupo** al que pertenece el ingrediente, la **composición nutricional** del ingrediente, el cual se compone de [**lípidos, hidratos de carbono, proteínas y kCalorías**], la **localizaciçón** [**ciudad y país de origen**] y finalmente el **precio** del ingrediente en cuestión.
