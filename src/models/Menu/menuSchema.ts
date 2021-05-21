@@ -15,10 +15,12 @@ const MenuSchema = new Schema({
       }
     },
   },
-  platos: [PlatoSchema],
+  platos: {
+    type: [PlatoSchema],
+    required: true,
+  },
   precio: {
     type: Number,
-    required: true,
     trim: true,
     validate: (value: number) => {
       if (value < 0) {
@@ -29,7 +31,6 @@ const MenuSchema = new Schema({
   composicionNutricional: {
     lipidos: {
       type: Number,
-      required: true,
       trim: true,
       validate: (value: number) => {
         if (value < 0) {
@@ -39,7 +40,6 @@ const MenuSchema = new Schema({
     },
     hCarbono: {
       type: Number,
-      required: true,
       trim: true,
       validate: (value: number) => {
         if (value < 0) {
@@ -49,7 +49,6 @@ const MenuSchema = new Schema({
     },
     proteinas: {
       type: Number,
-      required: true,
       trim: true,
       validate: (value: number) => {
         if (value < 0) {
@@ -59,7 +58,6 @@ const MenuSchema = new Schema({
     },
     kCal: {
       type: Number,
-      required: true,
       trim: true,
       validate: (value: number) => {
         if (value < 0) {

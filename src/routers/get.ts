@@ -45,7 +45,7 @@ getRouter.get('/courses', (req, res) => {
 
 getRouter.get('/menus', (req, res) => {
 
-  const filter = req.query.nameMenu?{nameMenu: req.query.nameMenu.toString()}:{};
+  const filter = req.query.nameMenu?{nombre: req.query.nameMenu.toString()}:{};
 
   menuSchema.findOne(filter).then((menu) => {
     if (menu == null) {
