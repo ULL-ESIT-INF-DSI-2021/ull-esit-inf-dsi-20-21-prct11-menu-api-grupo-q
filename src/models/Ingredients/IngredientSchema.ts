@@ -114,34 +114,3 @@ export const IngredienteSchema = new Schema({
 
 export const ingredientSchema = model<Ingrediente>('Ingrediente', IngredienteSchema);
 
-export const ingredientePrueba = new ingredientSchema({
-  grupo: {
-    numGrupo: 1,
-    grupo: [
-      "Carnes",
-      "Pescados",
-      "Huevos",
-      "Tofu",
-      "Frutos Secos",
-      "Legumbres"
-    ]
-  },
-  nombre: "Jamon cocido",
-  composicionNutricional: {
-    lipidos: 10.8,
-    hCarbono: 1,
-    proteinas: 18.4,
-    kCal: 175
-  },
-  localizacion: {
-    ciudad: "La Rioja",
-    pais: "España"
-  },
-  precio: 7.25
-});
-
-ingredientePrueba.save().then((result) => {
-  console.log(result);
-}).catch((error) => {
-  console.log(error);
-});

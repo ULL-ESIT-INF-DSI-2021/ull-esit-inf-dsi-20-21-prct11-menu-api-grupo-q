@@ -4,7 +4,7 @@ import { IngredienteSchema } from '../Ingredients/IngredientSchema';
 
 
 
-const PlatoSchema = new Schema({
+export const PlatoSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -61,4 +61,4 @@ const PlatoSchema = new Schema({
   },
 });
 
-const platoSchema = model<Platos>('Plato', PlatoSchema);
+export const platoSchema = model<Platos>('Plato', PlatoSchema);
