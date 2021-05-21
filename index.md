@@ -111,3 +111,45 @@ Donde tenemos, un **nombre**, un array que contiene los **ingredientes** del pla
  * [Schema menu](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-q/blob/master/src/models/Menu/menuSchema.ts).
 
 Donde tenemos, un **nombre**, un array que contiene los **platos** del menu, donde cada plato es de tipo `platoSchema`, es decir, que tendrá la estructura que nombramos en el apartado anterior.
+
+### 2.3. Operaciones CRUD
+
+Nuestra API tendrá implementadas las operaciones básicas de creación, lectura, modificación y borrado (**CRUD**) que actúan sobre nuestras distintas bases de datos haciéndolas interactivas.
+
+Se resumen los puntos claves del código para explicar las operaciones ([ver código completo](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-q/tree/master/src/BBDD/Ingredientes))
+
+### 2.3.1 Creación
+
+A través de esta operación, se añade un nuevo elemento a la base de datos correspondiente. Durante la operación se manejarán los posibles errores con la ayuda de [promesas](https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/nodejs-promises.html). Para ello: 
+
+* Nos conectaremos a la base de datos en la conexión que estemos usando (*mongodb://127.0.0.1:27017*) con ayuda de `mongoose`.
+
+```ts
+const dbURL = 'mongodb://127.0.0.1:27017';
+const dbName = 'ingredientes';
+
+MongoClient.connect(dbURL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then((client) => {
+  const db = client.db(dbName);
+  
+.
+.
+.
+```
+
+* Necesitaremos un elemento (Ingrediente, menú o plato) en base al modelo de `mongoose` que hace uso de su Schema (definido anteriormente). (Este elemento será obtenido típicamente usando ThunderClient)
+
+```ts
+const Ingrediente = mongoose.model<IngredienteInterface>('Ingredientes', IngredienteSchema);
+```
+* Añadiremos el elemento haciendo uso de la función `save()`
+
+```ts
+pasta.save().then((result) => {
+  console.log(result);
+}).catch((error) => {
+  console.log(error);
+});
+```
