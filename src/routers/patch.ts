@@ -39,7 +39,7 @@ patchRouter.patch('/ingredientes', (req, res) => {
   }
 });
 
-
+/*
 patchRouter.patch('/courses', (req, res) => {
   if (!req.query.nombre) {
     res.status(400).send({
@@ -102,4 +102,4 @@ patchRouter.patch('/menus', (req, res) => {
       });
     }
   }
-});
+});*/

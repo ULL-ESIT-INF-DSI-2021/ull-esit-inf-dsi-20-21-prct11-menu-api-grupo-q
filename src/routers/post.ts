@@ -18,7 +18,7 @@ postRouter.post('/ingredientes', (req, res) => {
   });
 });
 
-
+/*
 postRouter.post('/courses', (req, res) => {
 
   const plato = new platoSchema(req.body);
@@ -40,4 +40,4 @@ postRouter.post('/menus', (req, res) => {
   }).catch((error) => {
     res.status(400).send(error);
   });
-});
+});*/

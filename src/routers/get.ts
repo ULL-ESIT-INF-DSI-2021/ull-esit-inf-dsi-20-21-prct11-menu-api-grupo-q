@@ -5,12 +5,10 @@ const path = require('path')
 
 export const getRouter = express.Router();
 
-getRouter.get('/ingredientes', async(req, res) => {
+getRouter.get('/ingredientes', (req, res) => {
 
     const filter = req.query.nombre?{nombre: req.query.nombre.toString()}:{};
     ingredientSchema.findOne(filter).then((ingredient) => {
-      console.log(ingredient);
-      console.log(filter);
       if (ingredient == null) {
         console.log("Hubo un error")
         res.status(401).send();
