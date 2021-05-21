@@ -1,8 +1,7 @@
-/*
 import {MongoClient} from 'mongodb';
-import {Ingrediente} from './ingredientes/ingredientes';
+import {Ingrediente} from '../src/models/Ingredients/ingredientes';
 import * as fs from 'fs';
-import {ComposicionNutricional, GrupoAlimenticio, Localizacion} from './ingredientes/tiposDefinidos';
+import {ComposicionNutricional, GrupoAlimenticio, Localizacion} from '../src/models/Ingredients/tiposDefinidos';
 
 const dbURL = 'mongodb://127.0.0.1:27017';
 const dbName = 'BBDD-Información-nutricional';
@@ -26,11 +25,10 @@ MongoClient.connect(dbURL, {
     const ingredientes: IngredienteJSON[] = JSON.parse(data.toString());
     console.log(ingredientes);
 
-    return db.collection<IngredienteJSON>('Ingredientes').insertMany(ingredientes);
+    return db.collection<IngredienteJSON>('ingredientes').insertMany(ingredientes);
   });
 }).then((result) => {
   console.log(result);
 }).catch((error) => {
   console.log(error);
 });
-*/

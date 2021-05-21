@@ -1,15 +1,7 @@
 import {Ingrediente} from "./ingredientes";
 import {Document, Schema, model} from 'mongoose';
 import {GrupoAlimenticio, ComposicionNutricional, Localizacion} from './tiposDefinidos';
-
-
-interface IngredienteInterface {
-  nombre: string,
-  grupo: GrupoAlimenticio,
-  composicionNuticional: ComposicionNutricional,
-  localizacion: Localizacion,
-  precio: number,
-}
+import { IngredientesI } from "./interfazIngredientes";
 
 export const IngredienteSchema = new Schema({
   grupo: {
@@ -112,5 +104,4 @@ export const IngredienteSchema = new Schema({
   },
 });
 
-export const ingredientSchema = model<Ingrediente>('Ingrediente', IngredienteSchema);
-
+export const ingredientSchema = model<Ingrediente>('ingredientes', IngredienteSchema);

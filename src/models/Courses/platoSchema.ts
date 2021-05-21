@@ -5,7 +5,7 @@ import { IngredienteSchema } from '../Ingredients/IngredientSchema';
 
 
 export const PlatoSchema = new Schema({
-  name: {
+  nombre: {
     type: String,
     required: true,
     unique: true,
