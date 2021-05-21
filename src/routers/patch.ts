@@ -1,14 +1,14 @@
 import * as express from 'express';
-import {ingredientSchema} from '../models/Ingredients/IngredientSchema';
-import {platoSchema} from '../models/Courses/platoSchema';
+import {ingredientSchema} from '../models/Ingredientes/IngredientSchema';
+import {platoSchema} from '../models/Platos/platoSchema';
 import {menuSchema} from '../models/Menu/menuSchema';
 
 
 export const patchRouter = express.Router();
 
 
-patchRouter.patch('/ingredientes', (req, res) => {
-  if (!req.query.nombre) {
+patchRouter.patch('/ingredients', (req, res) => {
+  if (!req.query.nameIngredient) {
     res.status(400).send({
       error: 'A name must be provided',
     });
@@ -23,7 +23,7 @@ patchRouter.patch('/ingredientes', (req, res) => {
         error: 'Update is not permitted',
       });
     } else {
-      ingredientSchema.findOneAndUpdate({nombre: req.query.nombre.toString()}, req.body, {
+      ingredientSchema.findOneAndUpdate({nombre: req.query.nameIngredient.toString()}, req.body, {
         new: true,
         runValidators: true,
       }).then((ingrediente) => {
@@ -39,14 +39,14 @@ patchRouter.patch('/ingredientes', (req, res) => {
   }
 });
 
-/*
+
 patchRouter.patch('/courses', (req, res) => {
-  if (!req.query.nombre) {
+  if (!req.query.nameCourse) {
     res.status(400).send({
       error: 'A title must be provided',
     });
   } else {
-    const allowedUpdates = ['nombre', 'ingredientes', 'categoria', 'grupoPredominante', 'precio'];
+    const allowedUpdates = ['nombre', 'ingredientes', 'categoria'];
     const actualUpdates = Object.keys(req.body);
     const isValidUpdate =
       actualUpdates.every((update) => allowedUpdates.includes(update));
@@ -56,7 +56,7 @@ patchRouter.patch('/courses', (req, res) => {
         error: 'Update is not permitted',
       });
     } else {
-      platoSchema.findOneAndUpdate({nombre: req.query.nombre.toString()}, req.body, {
+      platoSchema.findOneAndUpdate({nombre: req.query.nameCourse.toString()}, req.body, {
         new: true,
         runValidators: true,
       }).then((plato) => {
@@ -102,4 +102,4 @@ patchRouter.patch('/menus', (req, res) => {
       });
     }
   }
-});*/
+});

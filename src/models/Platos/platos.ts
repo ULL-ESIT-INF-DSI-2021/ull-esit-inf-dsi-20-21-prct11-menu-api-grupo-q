@@ -1,5 +1,5 @@
-import { Ingrediente } from "../Ingredients/ingredientes"
-import { ComposicionNutricional, GrupoAlimenticio } from "../Ingredients/tiposDefinidos"
+import { Ingrediente } from "../Ingredientes/ingredientes"
+import { ComposicionNutricional, GrupoAlimenticio } from "../Ingredientes/tiposDefinidos"
 import { PlatosI } from "./interfazPlatos";
 
 /**
@@ -20,8 +20,8 @@ import { PlatosI } from "./interfazPlatos";
      * @param composicionNutricional Composición nutricional del ingrediente [Proteínas, Lípidos, Hidratos de Carbono].
      * @param precio Precio del ingrediente.
      */
-    constructor(private name: string, private ingredientes: [Ingrediente, number][], private categoria: "Entrante" | "Primer plato" | "Segundo plato" | "Postre"){   
-        this.name = name;
+    constructor(private nombre: string, private ingredientes: [Ingrediente, number][], private categoria: "Entrante" | "Primer plato" | "Segundo plato" | "Postre"){   
+        this.nombre = nombre;
         this.ingredientes = ingredientes;
         this.categoria = categoria; 
 
@@ -46,19 +46,19 @@ import { PlatosI } from "./interfazPlatos";
       }
 
     /**
-     * Método getter para obtener el name.
+     * Método getter para obtener el nombre.
      * @returns Se retorna la categoría del plato si es entrante, primer plato, segundo plato o postre
      */
     getNombre() {
-      return this.name
+      return this.nombre
     }
     
     /**
      * Método setter para establecer el nombre al plato.
-     * @param name El nombre nuevo a introducir
+     * @param nombre El nombre nuevo a introducir
      */
-    setNombre(name: string) {
-      this.name = name;
+    setNombre(nombre: string) {
+      this.nombre = nombre;
     }
 
     /**

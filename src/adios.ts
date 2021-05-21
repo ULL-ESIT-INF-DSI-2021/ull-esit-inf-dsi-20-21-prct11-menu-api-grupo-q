@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 import validator from 'validator';
-import {Platos} from "../src/models/Courses/platos";
-import {PlatoSchema} from './models/Courses/platoSchema';
+import {Platos} from "./models/Platos/platos";
+import {PlatoSchema} from './models/Platos/platoSchema';
 import {Menu} from './models/Menu/menus';
 
 mongoose.connect('mongodb://127.0.0.1:27017/users', {

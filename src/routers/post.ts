@@ -22,12 +22,14 @@ postRouter.post('/ingredients', (req, res) => {
 
 
 postRouter.post('/courses', (req, res) => {
+
   let aux: [Ingrediente, number][] = [];
   
   req.body.ingredientes.forEach((ingrediente: [IngredienteJSON, number]) => {
     let auxIngrediente = new Ingrediente(ingrediente[0].nombre, ingrediente[0].grupo.numGrupo, [ingrediente[0].composicionNutricional.lipidos, ingrediente[0].composicionNutricional.hCarbono, ingrediente[0].composicionNutricional.proteinas, ingrediente[0].composicionNutricional.kCal], [ingrediente[0].localizacion.ciudad, ingrediente[0].localizacion.pais], ingrediente[0].precio);
     aux.push([auxIngrediente, ingrediente[1]]);
   });
+
   const plato = new Platos(req.body.nombre, aux, req.body.categoria);
   const platoAIntroducir = new platoSchema(plato);
 

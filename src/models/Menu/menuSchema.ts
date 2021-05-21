@@ -1,6 +1,6 @@
 import {Menu} from "../Menu/menus";
 import {Document, Schema, model} from 'mongoose';
-import { PlatoSchema } from '../Courses/platoSchema';
+import { PlatoSchema } from '../Platos/platoSchema';
 
 
 const MenuSchema = new Schema({
@@ -70,4 +70,4 @@ const MenuSchema = new Schema({
   },
 });
 
-export const menuSchema = model<Menu>('Menu', MenuSchema);
+export const menuSchema = model<Menu>('menus', MenuSchema);

@@ -1,5 +1,5 @@
-import { Platos } from "../Courses/platos"
-import { ComposicionNutricional, GrupoAlimenticio } from "../Ingredients/tiposDefinidos"
+import { Platos } from "../Platos/platos"
+import { ComposicionNutricional, GrupoAlimenticio } from "../Ingredientes/tiposDefinidos"
 import { MenuI } from "./interfazMenu";
 
 /**

@@ -1,7 +1,6 @@
-{
-    "platos": [
+[
       {
-        "name": "Pan con ajo",
+        "nombre": "Pan con ajo",
         "ingredientes": [
           [
             {
@@ -92,7 +91,7 @@
               },
               "localizacion": {
                 "ciudad": "Cerdeña",
-                "pais": "italia"
+                "pais": "Italia"
               },
               "precio": 5.5
             },
@@ -115,7 +114,7 @@
         "precio": 0.6968
       },
       {
-        "name": "Huevos rotos",
+        "nombre": "Huevos rotos",
         "ingredientes": [
           [
             {
@@ -219,7 +218,7 @@
         "precio": 4.0454
       },
       {
-        "name": "Champiñones al ajillo",
+        "nombre": "Champiñones al ajillo",
         "ingredientes": [
           [
             {
@@ -315,7 +314,7 @@
               },
               "localizacion": {
                 "ciudad": "Cerdeña",
-                "pais": "italia"
+                "pais": "Italia"
               },
               "precio": 5.5
             },
@@ -339,7 +338,7 @@
         "precio": 1.74275
       },
       {
-        "name": "Pizza de Jamon cocido y champiñones",
+        "nombre": "Pizza de Jamon cocido y champiñones",
         "ingredientes": [
           [
             {
@@ -481,7 +480,7 @@
         "precio": 1.0447499999999998
       },
       {
-        "name": "Solomillo Wellington",
+        "nombre": "Solomillo Wellington",
         "ingredientes": [
           [
             {
@@ -636,7 +635,7 @@
         "precio": 4.35994
       },
       {
-        "name": "Salmon con arroz",
+        "nombre": "Salmon con arroz",
         "ingredientes": [
           [
             {
@@ -763,7 +762,7 @@
         "precio": 2.5719999999999996
       },
       {
-        "name": "Pollo a la brasa",
+        "nombre": "Pollo a la brasa",
         "ingredientes": [
           [
             {
@@ -815,7 +814,7 @@
         "precio": 1.5645
       },
       {
-        "name": "Teriyaki de atun rojo",
+        "nombre": "Teriyaki de atun rojo",
         "ingredientes": [
           [
             {
@@ -966,7 +965,7 @@
         "precio": 2.6235
       },
       {
-        "name": "Polo",
+        "nombre": "Polo",
         "ingredientes": [
           [
             {
@@ -1010,7 +1009,7 @@
         "precio": 0.2375
       },
       {
-        "name": "Donut",
+        "nombre": "Donut",
         "ingredientes": [
           [
             {
@@ -1052,7 +1051,7 @@
         "precio": 0.26
       },
       {
-        "name": "Natillas",
+        "nombre": "Natillas",
         "ingredientes": [
           [
             {
@@ -1119,7 +1118,7 @@
         "precio": 1.3946
       },
       {
-        "name": "Yogurt desnatado con fruta",
+        "nombre": "Yogurt desnatado con fruta",
         "ingredientes": [
           [
             {
@@ -1163,7 +1162,7 @@
         "precio": 1.2504000000000002
       },
       {
-        "name": "Tarta de queso",
+        "nombre": "Tarta de queso",
         "ingredientes": [
           [
             {
@@ -1277,7 +1276,7 @@
         "precio": 2.62235
       },
       {
-        "name": "Aguacate Relleno",
+        "nombre": "Aguacate Relleno",
         "ingredientes": [
           [
             {
@@ -1405,7 +1404,7 @@
         "precio": 0.68768
       },
       {
-        "name": "Potaje",
+        "nombre": "Potaje",
         "ingredientes": [
           [
             {
@@ -1497,7 +1496,7 @@
         "precio": 1.752
       },
       {
-        "name": "Ensalada",
+        "nombre": "Ensalada",
         "ingredientes": [
           [
             {
@@ -1593,7 +1592,7 @@
         "precio": 3.9415
       },
       {
-        "name": "Costillar con miel y mostaza",
+        "nombre": "Costillar con miel y mostaza",
         "ingredientes": [
           [
             {
@@ -1801,7 +1800,7 @@
         "precio": 7.23535
       },
       {
-        "name": "Sushi",
+        "nombre": "Sushi",
         "ingredientes": [
           [
             {
@@ -1896,7 +1895,7 @@
         "precio": 1.7792000000000001
       },
       {
-        "name": "Puchero",
+        "nombre": "Puchero",
         "ingredientes": [
           [
             {
@@ -2016,7 +2015,7 @@
         "precio": 0.3986
       },
       {
-        "name": "Sopa de pescado",
+        "nombre": "Sopa de pescado",
         "ingredientes": [
           [
             {
@@ -2110,7 +2109,7 @@
         "precio": 0.32
       },
       {
-        "name": "Lentejas",
+        "nombre": "Lentejas",
         "ingredientes": [
           [
             {
@@ -2209,5 +2208,4 @@
         },
         "precio": 0.6486000000000001
       }
-    ]
-}
+]

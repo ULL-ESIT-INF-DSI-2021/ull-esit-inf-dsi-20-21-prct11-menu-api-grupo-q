@@ -1,5 +1,5 @@
 
-import { Platos } from "../Courses/platos"
+import { Platos } from "../Platos/platos"
 
 /**
  * Interfaz Menu. Permite definir los métodos que tendrá la clase Menu.

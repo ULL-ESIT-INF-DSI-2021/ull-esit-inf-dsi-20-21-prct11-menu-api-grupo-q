@@ -29,3 +29,12 @@ export type Localizacion = {
     ciudad: string; // Ciudad
     pais: string; // País
 }
+
+
+export type IngredienteJSON = {
+    nombre: string;
+    grupo: GrupoAlimenticio;
+    composicionNutricional: ComposicionNutricional;
+    localizacion: Localizacion;
+    precio: number
+  }
