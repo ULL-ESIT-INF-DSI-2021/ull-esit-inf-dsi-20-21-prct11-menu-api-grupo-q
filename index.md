@@ -1,6 +1,5 @@
 # Práctica 11 - API Node/Express de gestión de información nutricional
-## Desarrollo de Sistemas Informáticos 
-## Grupo Q
+## Desarrollo de Sistemas Informáticos - _Grupo q_
 
 ### Introducción
 
