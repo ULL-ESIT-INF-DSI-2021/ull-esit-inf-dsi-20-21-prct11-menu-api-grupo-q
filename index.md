@@ -116,11 +116,11 @@ Donde tenemos, un **nombre**, un array que contiene los **platos** del menu, don
 
 Nuestra API tendrá implementadas las operaciones básicas de creación, lectura, modificación y borrado (**CRUD**) que actúan sobre nuestras distintas bases de datos haciéndolas interactivas.
 
-Se resumen los puntos claves del código para explicar las operaciones ([ver código completo](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-q/tree/master/src/BBDD/Ingredientes))
+Se resumen los puntos claves del código para explicar las operaciones ([ver código completo](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-q/tree/master/src/BBDD/Ingredientes)).
 
 ### 2.3.1 Creación
 
-A través de esta operación, se añade un nuevo elemento a la base de datos correspondiente. Durante la operación se manejarán los posibles errores con la ayuda de [promesas](https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/nodejs-promises.html). Para ello: 
+A través de esta operación, se añade un nuevo elemento a la base de datos correspondiente (durante la operación se manejarán los posibles errores con la ayuda de [promesas](https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/nodejs-promises.html)). Para ello: 
 
 * Nos conectaremos a la base de datos en la conexión que estemos usando (*mongodb://127.0.0.1:27017*) con ayuda de `mongoose`.
 
