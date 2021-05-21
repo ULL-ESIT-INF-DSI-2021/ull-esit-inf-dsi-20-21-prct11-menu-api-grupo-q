@@ -116,40 +116,68 @@ Donde tenemos, un **nombre**, un array que contiene los **platos** del menu, don
 
 Nuestra API tendrá implementadas las operaciones básicas de creación, lectura, modificación y borrado (**CRUD**) que actúan sobre nuestras distintas bases de datos haciéndolas interactivas.
 
-Se resumen los puntos claves del código para explicar las operaciones ([ver código completo](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-q/tree/master/src/BBDD/Ingredientes)).
+Se resumen los puntos claves del código para explicar las operaciones ([ver código completo](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-q/tree/master/src/routers)).
 
 ### 2.3.1 Creación
 
 A través de esta operación, se añade un nuevo elemento a la base de datos correspondiente (durante la operación se manejarán los posibles errores con la ayuda de [promesas](https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/nodejs-promises.html)). Para ello: 
 
-* Nos conectaremos a la base de datos en la conexión que estemos usando (*mongodb://127.0.0.1:27017*) con ayuda de `mongoose`.
+* Usaremos una instancia de express encargada del direccionamiento que llamaremos **postRouter** (ya que el método de ruta deriva en el método HTTP **POST** que manda la petición al servidor de añadir el elemento).
 
 ```ts
-const dbURL = 'mongodb://127.0.0.1:27017';
-const dbName = 'ingredientes';
-
-MongoClient.connect(dbURL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then((client) => {
-  const db = client.db(dbName);
-  
-.
-.
-.
+export const postRouter = express.Router();
 ```
 
-* Necesitaremos un elemento (Ingrediente, menú o plato) en base al modelo de `mongoose` que hace uso de su Schema (definido anteriormente). (Este elemento será obtenido típicamente usando ThunderClient)
+* Necesitaremos un elemento (Ingrediente, menú o plato) en base al modelo que hace uso de su Schema (definido anteriormente). (Este elemento será obtenido típicamente usando ThunderClient)
 
 ```ts
-const Ingrediente = mongoose.model<IngredienteInterface>('Ingredientes', IngredienteSchema);
+const ingrediente = new ingredientSchema(req.body);
 ```
 * Añadiremos el elemento haciendo uso de la función `save()`
 
 ```ts
-pasta.save().then((result) => {
-  console.log(result);
-}).catch((error) => {
-  console.log(error);
+postRouter.post('/ingredients', (req, res) => {
+  const ingrediente = new ingredientSchema(req.body);
+
+  ingrediente.save().then((ingrediente) => {
+    res.status(201).send(ingrediente);
+  }).catch((error) => {
+    res.status(400).send(error);
+  });
+});
+```
+
+### 2.3.2 Lectura
+
+A través de esta operación, se lee un elemento de la base de datos correspondiente (durante la operación se manejarán los posibles errores con la ayuda de [promesas](https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/nodejs-promises.html)). Para ello: 
+
+* Usaremos una instancia de express encargada del direccionamiento que llamaremos **getRouter** (ya que el método de ruta deriva en el método HTTP **GET** que manda la petición al servidor de obtener el elemento indicado).
+
+```ts
+export const getRouter = express.Router();
+```
+
+* Filtraremos la base de datos en función del nombre del elemento (Ingrediente, menú o plato). (Esta petición será manejada haciendo uso de ThunderClient)
+
+```ts
+const filter = req.query.nameIngredient?{nombre: req.query.nameIngredient.toString()}:{};
+```
+* Buscaremos el elemento concreto por su nombre haciendo uso de la función `findOne()`
+
+```ts
+getRouter.get('/ingredients', (req, res) => {
+
+    const filter = req.query.nameIngredient?{nombre: req.query.nameIngredient.toString()}:{};
+
+    ingredientSchema.findOne(filter).then((ingredient) => {
+      if (ingredient == null) {
+        res.status(401).send();
+      } 
+      else {
+          res.send(ingredient);
+      }
+    }).catch(() => {
+      res.status(400).send();
+    });
 });
 ```
