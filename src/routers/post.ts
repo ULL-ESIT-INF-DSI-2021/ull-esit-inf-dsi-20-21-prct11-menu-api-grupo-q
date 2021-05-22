@@ -29,26 +29,40 @@ postRouter.post('/courses', (req, res) => {
   let aux: [Ingrediente, number][] = [];
   
   req.body.ingredientes.forEach((ingrediente: [IngredienteJSON, number]) => {
-    let auxIngrediente = new Ingrediente(ingrediente[0].nombre, ingrediente[0].grupo.numGrupo, [ingrediente[0].composicionNutricional.lipidos, ingrediente[0].composicionNutricional.hCarbono, ingrediente[0].composicionNutricional.proteinas, ingrediente[0].composicionNutricional.kCal], [ingrediente[0].localizacion.ciudad, ingrediente[0].localizacion.pais], ingrediente[0].precio);
-    
+    //console.log(ingrediente);
     const filter = {nombre: ingrediente[0].nombre};
     ingredientSchema.findOne(filter).then((ingredient) => {
+      console.log(ingredient);
       if (ingredient == null) {
-        res.status(400).send({
+        res.status(401).send({
           error: 'El ingrediente no se encuentra en la base de datos',
         });
       } 
       else {
-        console.log(ingredient.getNombre().toS);
-        let auxIngrediente = new Ingrediente(ingredient.getNombre(), ingredient.getGrupoAlimenticio().numGrupo, [ingredient.getComposicionNutricional().lipidos, ingredient.getComposicionNutricional().hCarbono, ingredient.getComposicionNutricional().proteinas, ingredient.getComposicionNutricional().kCal], [ingredient.getLocalizacion().ciudad, ingredient.getLocalizacion().pais], ingredient.getPrecio());
-        aux.push([auxIngrediente, ingrediente[1]]);
+        let cadena = ingredient.toString();
+        let nombreIngrediente = cadena.substring(cadena.indexOf('nombre:')+9, cadena.indexOf('precio:')-5);
+        let numGrupoAlimenticio = parseInt(cadena.substring(cadena.indexOf('numGrupo:')+10, cadena.indexOf('numGrupo:')+12));
+        let numLipidos = parseFloat(cadena.substring(cadena.indexOf('lipidos:')+9, cadena.indexOf(', hCarbono')));
+        console.log(nombreIngrediente);
+        console.log(numGrupoAlimenticio);
+        console.log(numLipidos);
+        //let auxIngrediente = new Ingrediente(nombreIngrediente, numGrupoAlimenticio, [numLipidos, numHCarbono, ingredient.getComposicionNutricional().proteinas, ingredient.getComposicionNutricional().kCal], [ingredient.getLocalizacion().ciudad, ingredient.getLocalizacion().pais], ingredient.getPrecio());
+        //console.log(auxIngrediente);
+        //aux.push([auxIngrediente, ingrediente[1]]);
       }
     }).catch(() => {
       res.status(400).send();
     });
   });
 
-console.log(aux);
+  /*const plato = new Platos(req.body.nombre, aux, req.body.categoria);
+  const platoAIntroducir = new platoSchema(plato);
+
+  platoAIntroducir.save().then((plato) => {
+    res.status(201).send(plato);
+  }).catch((error) => {
+    res.status(400).send(error);
+  });*/
 });
 
 
