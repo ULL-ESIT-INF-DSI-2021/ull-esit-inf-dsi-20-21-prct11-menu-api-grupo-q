@@ -128,7 +128,7 @@ A través de esta operación, se añade un nuevo elemento a la base de datos cor
 export const postRouter = express.Router();
 ```
 
-* Necesitaremos un elemento (Ingrediente, menú o plato) en base al modelo que hace uso de su Schema (definido anteriormente). (Este elemento será obtenido típicamente usando ThunderClient)
+* Necesitaremos un elemento (Ingrediente, menú o plato) en base al modelo que hace uso de su Schema (definido anteriormente). (Este elemento será obtenido típicamente usando Thunder Client)
 
 ```ts
 const ingrediente = new ingredientSchema(req.body);
@@ -157,7 +157,7 @@ A través de esta operación, se lee un elemento de la base de datos correspondi
 export const getRouter = express.Router();
 ```
 
-* Filtraremos la base de datos en función del nombre del elemento (Ingrediente, menú o plato). (Esta petición será manejada haciendo uso de ThunderClient)
+* Filtraremos la base de datos en función del nombre del elemento (Ingrediente, menú o plato). (Esta petición será manejada haciendo uso de Thunder Client)
 
 ```ts
 const filter = req.query.nameIngredient?{nombre: req.query.nameIngredient.toString()}:{};
@@ -192,7 +192,7 @@ A través de esta operación, se modifica un elemento de la base de datos corres
 export const patchRouter = express.Router();
 ```
 
-* Se especificarán los cambios válidos para cada elemento (Ingrediente, menú o plato) y se llevará a cabo la validación de los valores actuales. (Esta petición será manejada haciendo uso de ThunderClient)
+* Se especificarán los cambios válidos para cada elemento (Ingrediente, menú o plato) y se llevará a cabo la validación de los valores actuales. (Esta petición será manejada haciendo uso de Thunder Client)
 
 ```ts
 const allowedUpdates = ['nombre', 'grupo', 'composicionNutricional', 'localizacion', 'precio'];
@@ -245,7 +245,7 @@ A través de esta operación, se elimina un elemento de la base de datos corresp
 export const deleteRouter = express.Router();
 ```
 
-* Filtraremos la base de datos en función del nombre del elemento (Ingrediente, menú o plato) que deseamos eliminar. (Esta petición será manejada haciendo uso de ThunderClient)
+* Filtraremos la base de datos en función del nombre del elemento (Ingrediente, menú o plato) que deseamos eliminar. (Esta petición será manejada haciendo uso de Thunder Client)
 
 ```ts
 const filter = req.query.nameIngredient?{nombre: req.query.nameIngredient.toString()}:{};
@@ -272,8 +272,10 @@ deleteRouter.delete('/ingredients', (req, res) => {
 });
 ```
 
-### 2.4. Thunderclient
+### 2.4. Thunder Client
 
+Algunas peticiones (como *POST*) no se pueden realizar a través del navegador. 
 
+Thunder Client es una herramienta que nos permite probar e interactuar con nuestra API. A través de ella, se le indica al servidor el método HTTP usado en la petición permitiéndonos realizar las operaciones CRUD sobre nuestra base de datos.
 
 ### 2.4.1
