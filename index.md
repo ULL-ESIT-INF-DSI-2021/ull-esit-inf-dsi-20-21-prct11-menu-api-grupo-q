@@ -278,4 +278,23 @@ Algunas peticiones (como *POST*) no se pueden realizar a través del navegador.
 
 Thunder Client es una herramienta que nos permite probar e interactuar con nuestra API. A través de ella, se le indica al servidor el método HTTP usado en la petición permitiéndonos realizar las operaciones CRUD sobre nuestra base de datos.
 
-### 2.4.1
+### 2.4.1 Modo de uso
+
+
+
+
+### Conclusiones
+
+Esta práctica nos ha resultado de gran utilidad para poner en práctica todos los conocimientos, herramientas, principios ... aprendidos hasta la fecha. Hemos aprendido ampliamente sobre los coneceptos necesarios para el diseño y manipulación de bases de datos a través de una API REST con la que podremos interactuar y realizar las operaciones principales.
+
+Las bases de datos son un recurso imprescindible para casi cualquier proyecto que hagamos tanto en la actualidad como en el futuro, sin duda les daremos un uso intensivo a lo largo de nuestra trayectoria.
+
+### Bibliografía
+
+A continuación se muestra una serie de recursos que han sido de gran utilidad para la realización de la práctica y de este informe:
+
+Recurso| Dirección
+-------|----------
+Guía de la práctica | https://ull-esit-inf-dsi-2021.github.io/prct11-menu-api/
+Apuntes | https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/
+
