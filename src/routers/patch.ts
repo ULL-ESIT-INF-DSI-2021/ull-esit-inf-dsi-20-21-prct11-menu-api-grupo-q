@@ -10,7 +10,7 @@ export const patchRouter = express.Router();
 patchRouter.patch('/ingredients', (req, res) => {
   if (!req.query.nameIngredient) {
     res.status(400).send({
-      error: 'A name must be provided',
+      error: 'Un nombre de ingrediente debe ser añadido'
     });
   } else {
     const allowedUpdates = ['nombre', 'grupo', 'composicionNutricional', 'localizacion', 'precio'];
@@ -19,8 +19,8 @@ patchRouter.patch('/ingredients', (req, res) => {
       actualUpdates.every((update) => allowedUpdates.includes(update));
 
     if (!isValidUpdate) {
-      res.status(400).send({
-        error: 'Update is not permitted',
+      res.status(405).send({
+        error: 'El método update no ha sido validado'
       });
     } else {
       ingredientSchema.findOneAndUpdate({nombre: req.query.nameIngredient.toString()}, req.body, {
@@ -28,12 +28,16 @@ patchRouter.patch('/ingredients', (req, res) => {
         runValidators: true,
       }).then((ingrediente) => {
         if (!ingrediente) {
-          res.status(404).send();
+          res.status(404).send({
+            error: 'No se encuentra el nombre del ingrediente'
+          });
         } else {
-          res.send(ingrediente);
+          res.status(202).send(ingrediente);
         }
-      }).catch((error) => {
-        res.status(400).send(error);
+      }).catch(() => {
+        res.status(400).send({
+          error: 'Solicitud Incorrecta'
+        });
       });
     }
   }
@@ -43,7 +47,7 @@ patchRouter.patch('/ingredients', (req, res) => {
 patchRouter.patch('/courses', (req, res) => {
   if (!req.query.nameCourse) {
     res.status(400).send({
-      error: 'A title must be provided',
+      error: 'Un nombre de plato debe ser añadido'
     });
   } else {
     const allowedUpdates = ['nombre', 'ingredientes', 'categoria'];
@@ -52,8 +56,8 @@ patchRouter.patch('/courses', (req, res) => {
       actualUpdates.every((update) => allowedUpdates.includes(update));
 
     if (!isValidUpdate) {
-      res.status(400).send({
-        error: 'Update is not permitted',
+      res.status(405).send({
+        error: 'El método update no ha sido validado'
       });
     } else {
       platoSchema.findOneAndUpdate({nombre: req.query.nameCourse.toString()}, req.body, {
@@ -61,44 +65,54 @@ patchRouter.patch('/courses', (req, res) => {
         runValidators: true,
       }).then((plato) => {
         if (!plato) {
-          res.status(404).send();
+          res.status(404).send({
+            error: 'No se encuentra el nombre del plato'
+          });
         } else {
-          res.send(plato);
+          res.status(202).send(plato);
         }
-      }).catch((error) => {
-        res.status(400).send(error);
+      }).catch(() => {
+        res.status(400).send({
+          error: 'Solicitud Incorrecta'
+        });
       });
     }
   }
 });
 
 patchRouter.patch('/menus', (req, res) => {
-  if (!req.query.nombre) {
+  if (!req.query.nameMenu) {
     res.status(400).send({
-      error: 'A title must be provided',
+      error: 'Un nombre de menu debe ser añadido'
     });
   } else {
-    const allowedUpdates = ['nombre', 'platos', 'precio', 'composicionNutricional'];
+    const allowedUpdates = ['nombre', 'platos'];
     const actualUpdates = Object.keys(req.body);
     const isValidUpdate =
       actualUpdates.every((update) => allowedUpdates.includes(update));
 
     if (!isValidUpdate) {
-      res.status(400).send({
-        error: 'Update is not permitted',
+      res.status(405).send({
+        error: 'El método update no ha sido validado'
       });
     } else {
-      menuSchema.findOneAndUpdate({nombre: req.query.nombre.toString()}, req.body, {
+      menuSchema.findOneAndUpdate({nombre: req.query.nameMenu.toString()}, req.body, {
         new: true,
         runValidators: true,
       }).then((menu) => {
+        console.log("Hola")
+        console.log(menu)
         if (!menu) {
-          res.status(404).send();
+          res.status(404).send({
+            error: 'No se encuentra el nombre del menu'
+          });
         } else {
-          res.send(menu);
+          res.status(202).send(menu);
         }
-      }).catch((error) => {
-        res.status(400).send(error);
+      }).catch(() => {
+        res.status(400).send({
+          error: 'Solicitud Incorrecta'
+        });
       });
     }
   }

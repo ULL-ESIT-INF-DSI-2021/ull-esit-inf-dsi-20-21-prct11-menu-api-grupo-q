@@ -18,8 +18,10 @@ postRouter.post('/ingredients', (req, res) => {
 
   ingrediente.save().then((ingrediente) => {
     res.status(201).send(ingrediente);
-  }).catch((error) => {
-    res.status(400).send(error);
+  }).catch(() => {
+    res.status(400).send({
+      error: 'Solicitud Incorrecta'
+    });
   });
 });
 
@@ -31,8 +33,8 @@ postRouter.post('/courses', (req, res) => {
     const filter = {"nombre": ingrediente[0].nombre};
     ingredientSchema.findOne(filter).then((ingredient) => {
       if (ingredient == null) {
-        res.status(401).send({
-          error: 'El ingrediente no se encuentra en la base de datos',
+        res.status(406).send({
+          error: 'No se acepta que un ingrediente sea nulo o esté vacío'
         });
       } 
       else {
@@ -55,13 +57,17 @@ postRouter.post('/courses', (req, res) => {
 
           platoAIntroducir.save().then((plato) => {
             res.status(201).send(plato);
-          }).catch((error) => {
-            res.status(400).send(error);
+          }).catch(() => {
+            res.status(400).send({
+              error: 'Solicitud Incorrecta'
+            });
           });
         }
       }
     }).catch(() => {
-      res.status(400).send();
+      res.status(400).send({
+        error: 'Solicitud Incorrecta'
+      });
     });
   });
 });
@@ -71,25 +77,35 @@ postRouter.post('/menus', (req, res) => {
 
   let auxVecPlatos: Platos[] = [];
 
-  req.body.platos.forEach((platoJS: PlatoJSON) => {
-    let auxVecIngredientes: [Ingrediente, number][] = [];
-    platoJS.ingredientes.forEach((ingrediente: [IngredienteJSON, number]) => {
-      let auxIngrediente = new Ingrediente(ingrediente[0].nombre, ingrediente[0].grupo.numGrupo, [ingrediente[0].composicionNutricional.lipidos, ingrediente[0].composicionNutricional.hCarbono, ingrediente[0].composicionNutricional.proteinas, ingrediente[0].composicionNutricional.kCal], [ingrediente[0].localizacion.ciudad, ingrediente[0].localizacion.pais], ingrediente[0].precio);
-      auxVecIngredientes.push([auxIngrediente, ingrediente[1]]);
-      console.log(auxVecIngredientes);
+  req.body.platos.forEach((platoEntrada: PlatoJSON) => {
+    const filter = {"nombre": platoEntrada};
+
+    platoSchema.findOne(filter).then((plato) => {
+      if (plato == null) {
+        res.status(406).send({
+          error: 'No se acepta que un plato sea nulo o esté vacío'
+        });
+      } 
+      else {
+        auxVecPlatos.push(plato);
+
+        if (req.body.platos.length == auxVecPlatos.length) {
+          const menu = new Menu(req.body.nombre, auxVecPlatos);
+          const menuAIntroducir = new menuSchema(menu);
+
+          menuAIntroducir.save().then((menu) => {
+            res.status(201).send(menu);
+          }).catch(() => {
+            res.status(400).send({
+              error: 'Solicitud Incorrecta'
+            });
+          });
+        }
+      }
+    }).catch(() => {
+      res.status(400).send({
+        error: 'Solicitud Incorrecta'
+      });
     });
-    console.log(auxVecPlatos);
-
-    const plato = new Platos(platoJS.nombre, auxVecIngredientes, platoJS.categoria);
-    auxVecPlatos.push(plato)
-  });
-
-  const menu = new Menu(req.body.nombre, auxVecPlatos);
-  const menuAIntroducir = new menuSchema(menu);
-
-  menuAIntroducir.save().then((menu) => {
-    res.status(201).send(menu);
-  }).catch((error) => {
-    res.status(400).send(error);
   });
 });
