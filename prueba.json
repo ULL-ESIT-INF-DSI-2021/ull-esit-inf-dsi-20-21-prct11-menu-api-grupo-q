@@ -1,0 +1,30 @@
+{
+  "nombre": "Pan con ajooo",
+  "ingredientes": [
+    [
+      {
+        "nombre": "Pan"
+      },
+      100
+    ],
+    [
+      {
+        "nombre": "Ajo"
+      },
+      2
+    ],
+    [
+      {
+        "nombre": "Mantequilla"
+      },
+      60
+    ],
+    [
+      {
+        "nombre": "Perejil"
+      },
+      20
+    ]
+  ],
+  "categoria": "Entrante"
+}

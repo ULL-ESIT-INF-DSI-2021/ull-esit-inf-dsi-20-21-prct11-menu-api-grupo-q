@@ -9,11 +9,19 @@ const dbURL = 'mongodb://127.0.0.1:27017';
 const dbName = 'BBDD-Información-nutricional';
 
 
-export type MenuJSON = {
+/*export type ingredientesJSON = {
     nombre: string;
     platos: PlatoJSON[];
     composicionNutricional: ComposicionNutricional;
     precio: number
+}*/
+
+export type IngredienteJSON = {
+  nombre: string;
+  grupo: GrupoAlimenticio;
+  composicionNutricional: ComposicionNutricional;
+  localizacion: Localizacion;
+  precio: number
 }
 
 
@@ -23,12 +31,12 @@ MongoClient.connect(dbURL, {
 }).then((client) => {
   const db = client.db(dbName);
 
-  fs.readFile('public/menus/menus.json', (err, data) => {
+  fs.readFile('public/ingredientes/ingredientes.json', (err, data) => {
     console.log(data.toString());
-    const menus: MenuJSON[] = JSON.parse(data.toString());
-    console.log(menus);
+    const ingredientes: IngredienteJSON[] = JSON.parse(data.toString());
+    console.log(ingredientes);
 
-    return db.collection<MenuJSON>('menus').insertMany(menus);
+    return db.collection<IngredienteJSON>('ingredients').insertMany(ingredientes);
   });
 }).then((result) => {
   console.log(result);
