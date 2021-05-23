@@ -15,13 +15,17 @@ getRouter.get('/ingredients', (req, res) => {
 
     ingredientSchema.findOne(filter).then((ingredient) => {
       if (ingredient == null) {
-        res.status(401).send();
+        res.status(406).send({
+          error: 'No se acepta que un ingrediente sea nulo o esté vacío'
+        });
       } 
       else {
-          res.send(ingredient);
+          res.status(200).send(ingredient);
       }
     }).catch(() => {
-      res.status(400).send();
+      res.status(400).send({
+        error: 'Solicitud Incorrecta'
+      });
     });
 });
 
@@ -32,13 +36,17 @@ getRouter.get('/courses', (req, res) => {
   console.log(filter)
   platoSchema.findOne(filter).then((plato) => {
     if (plato == null) {
-      res.status(401).send();
+      res.status(406).send({
+        error: 'No se acepta que un plato sea nulo o esté vacío'
+      });
     } 
     else {
-      res.send(plato);
+      res.status(200).send(plato);
     }
   }).catch(() => {
-    res.status(400).send();
+    res.status(400).send({
+      error: 'Solicitud Incorrecta'
+    });
   });
 });
 
@@ -49,12 +57,16 @@ getRouter.get('/menus', (req, res) => {
 
   menuSchema.findOne(filter).then((menu) => {
     if (menu == null) {
-      res.status(401).send();
+      res.status(406).send({
+        error: 'No se acepta que un menu sea nulo o esté vacío'
+      });
     } 
     else {
-        res.send(menu);
+        res.status(200).send(menu);
     }
   }).catch(() => {
-    res.status(400).send();
+    res.status(400).send({
+      error: 'Solicitud Incorrecta'
+    });
   });
 });

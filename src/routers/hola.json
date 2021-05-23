@@ -1,9 +1,0 @@
-{
-  grupo: { 
-    grupo: [ 'Leche', 'Derivados Lacteos' ], numGrupo: 3 },
-  composicionNutricional: { lipidos: 83, hCarbono: 0, proteinas: 0.6, kCal: 749 },
-  localizacion: { ciudad: 'Lyon', pais: 'Francia' },
-  _id: 60a7d6233702516873fdf6c8,
-  nombre: 'Mantequilla',
-  precio: 5.5
-}

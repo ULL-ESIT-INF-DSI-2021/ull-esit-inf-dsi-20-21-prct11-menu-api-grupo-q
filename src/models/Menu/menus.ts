@@ -25,9 +25,9 @@ export class Menu implements MenuI<ComposicionNutricional>{
       let contador: number = 0;
       let categoriaAux: string = platos[0].getCategoria();
       let comprobarCategoria: number[] = [1];
-
+      
       let cantporGrupo: [number, number, number, number, number] = [0,0,0,0,0];
-      this.platos.forEach((plato) => {
+      this.platos.forEach((plato) => {plato.getComposicionNutricional()
         if (comprobarCategoria[2] != 1) {
           if (categoriaAux != plato.getCategoria()){
             comprobarCategoria.push(1);

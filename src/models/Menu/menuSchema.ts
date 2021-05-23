@@ -1,6 +1,7 @@
 import {Menu} from "../Menu/menus";
 import {Document, Schema, model} from 'mongoose';
 import { PlatoSchema } from '../Platos/platoSchema';
+import { Platos } from "../Platos/platos";
 
 
 const MenuSchema = new Schema({
@@ -16,7 +17,8 @@ const MenuSchema = new Schema({
     },
   },
   platos: {
-    type: [PlatoSchema],
+    type: Array, 
+    plato: Platos,
     required: true,
   },
   precio: {
