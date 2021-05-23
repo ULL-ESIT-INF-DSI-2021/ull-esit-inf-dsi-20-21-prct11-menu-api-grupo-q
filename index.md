@@ -300,7 +300,25 @@ Lo que se ha hecho es registrarnos en este servicio, se ha creado una organizaci
 
 ### 2.5.2 Despliegue en Heroku
 
+***Heroku*** es un sistema que funciona como plataforma como servicio (PaaS) de computación en la nube, y soporta numerosos lenguajes de programación, como Ruby, Python o Node.js. 
 
+Algunas ventajas de Heroku son:
+
+* Es gratuito para aplicaciones de poco consumo.
+* Permite el uso de diferentes lenguajes de programación.
+* Plataforma fácil de usar.
+* Integración de varios servicios dentro de su estructura.
+* Se puede tener acceso desde cualquier lugar y dispositivo compatible con la computación en la nube.
+
+Algunas desventajas de Heroku son:
+
+* Se necesita contratar un servicio de base de datos externo y un hosting.
+* La disponibilidad de las aplicación que vayamos a ofrecer está limitada a la disponibilidad del acceso a internet que tenga el usuario.
+
+Antes de desplegar la API en Heroku, tenemos que cambiar algunas cosas en nuestro proyecto:
+
+* ***Modificación del fichero mongoose.ts***: Para que utilice la URL de la base de datos que se utilizará con MongoDB Atlas.
+* ***Modificación del fichero package.json***: Se deberá de incluir ciertas dependencias y scripts para que Heroku pueda desplegar correctamente la aplicación.
 
 
 ### Conclusiones
