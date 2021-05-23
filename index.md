@@ -352,7 +352,7 @@ Recurso| Dirección
 Guía de la práctica | https://ull-esit-inf-dsi-2021.github.io/prct11-menu-api/
 Apuntes | https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/
 
-[GET]: images/get.JPG "Petición GET"
-[POST]: images/post.JPG "Petición POST"
-[PATCH]: images/patch.JPG "Petición PATCH"
-[DELETE]: images/delete.JPG "Petición DELETE"
+[GET]: img/get.JPG "Petición GET"
+[POST]: img/post.JPG "Petición POST"
+[PATCH]: img/patch.JPG "Petición PATCH"
+[DELETE]: img/delete.JPG "Petición DELETE"
