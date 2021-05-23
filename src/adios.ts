@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import validator from 'validator';
+//import validator from 'validator';
 import {Platos} from "./models/Platos/platos";
 import {PlatoSchema} from './models/Platos/platoSchema';
 import {Menu} from './models/Menu/menus';
