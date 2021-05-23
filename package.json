@@ -2,7 +2,7 @@
   "name": "ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-q",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "heroku-postbuild": "tsc",
     "start": "node dist/index.js",
