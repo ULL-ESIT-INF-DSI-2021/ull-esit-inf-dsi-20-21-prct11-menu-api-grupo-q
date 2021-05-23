@@ -278,8 +278,24 @@ Algunas peticiones (como *POST*) no se pueden realizar a través del navegador.
 
 Thunder Client es una herramienta que nos permite probar e interactuar con nuestra API. A través de ella, se le indica al servidor el método HTTP usado en la petición permitiéndonos realizar las operaciones CRUD sobre nuestra base de datos.
 
-### 2.4.1 Modo de uso
+### 2.4.1 Modo de uso de las peticiones (con Heroku):
 
+A continuación se muestra la funcionalidad de nuestra aplicación para el caso de los ingredientes, mediante la simulación de un cliente con ThunderClient. Para ello se realizaron las siguientes operaciones:
+
+* **GET**:
+!["Petición GET][GET]
+
+
+* **POST**:
+!["Petición POST][POST]
+
+
+* **PATCH**:
+!["Petición PATCH][PATCH]
+
+
+* **DELETE**:
+!["Petición DELETE][DELETE]
 
 
 ### 2.5 Despliegue del API REST
@@ -336,3 +352,7 @@ Recurso| Dirección
 Guía de la práctica | https://ull-esit-inf-dsi-2021.github.io/prct11-menu-api/
 Apuntes | https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/
 
+[GET]: images/get.JPG "Petición GET"
+[POST]: images/post.JPG "Petición POST"
+[PATCH]: images/patch.JPG "Petición PATCH"
+[DELETE]: images/delete.JPG "Petición DELETE"
