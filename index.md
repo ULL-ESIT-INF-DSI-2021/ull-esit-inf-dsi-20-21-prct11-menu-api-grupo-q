@@ -290,11 +290,11 @@ Thunder Client es una herramienta que nos permite probar e interactuar con nuest
 
 Lo que se ha hecho es registrarnos en este servicio, se ha creado una organización y un proyecto, que hemos llamado ***dsi-gin***. Una vez realizadas estas tareas iniciales, se ha reado un ***cluster***, que es una colección de conjuntos de datos distribuidos en muchos fragmentos (servidores) para lograr una escalabilidad horizontal y un mejor rendimiento en las operaciones de lectura y escritura. Esta fragmentación es muy útil para colecciones que tienen una gran cantidad de datos y altas tasas de consulta.
 
-	El cluster creado será de tipo compartido (opción gratuita), y como proveedor de servicios se va a utilizar AMS (ubicados en Europa). A continuación se conectará el cluster, pero antes habrá que añadir una dirección IP de conexión y un usuario de la base de datos.
+* El cluster creado será de tipo compartido (opción gratuita), y como proveedor de servicios se va a utilizar AMS (ubicados en Europa). A continuación se conectará el cluster, pero antes habrá que añadir una dirección IP de conexión y un usuario de la base de datos.
 	
-    	* Para la IP de conexión, seleccionamos la opción  Allow Access from Anywhere, y el campo IP Address se rellenará con el valor 0.0.0.0/0. 
+    * Para la IP de conexión, seleccionamos la opción  Allow Access from Anywhere, y el campo IP Address se rellenará con el valor 0.0.0.0/0. 
 
-     * En el caso del usuario, se va a indicar un nombre de usuario y una contraseña.
+    * En el caso del usuario, se va a indicar un nombre de usuario y una contraseña.
 
  Finalmente, el método de conexión que elegiremos será ***Connect using MongoDB Compass***, una herramienta que permite explorar, modificar y visualizar las bases de datos creadas en nuestro clúster. 
 
