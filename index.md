@@ -282,6 +282,14 @@ Thunder Client es una herramienta que nos permite probar e interactuar con nuest
 
 
 
+### 2.5 Despliegue del API REST
+
+### 2.5.1 Creación de un clúster en MongoDB Atlas
+
+### 2.5.2 Despliegue en Heroku
+
+
+
 
 ### Conclusiones
 
